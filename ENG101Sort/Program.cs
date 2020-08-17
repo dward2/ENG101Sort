@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -22,7 +23,7 @@ namespace ENG101Sort
             if (filename=="") { return;  }
             Console.WriteLine("The entered name was {0}.", filename);
             */
-            string filename = @"D:\OneDrive\Documents\Ann\Work Spreadsheets\Fall 2019 Project Sort\Proj_Pref._Surveys\006.csv";
+            string filename = @"D:\OneDrive\Documents\Ann\Work Spreadsheets\Fall 2020 Project Sort\007.csv";
             List<Student> students = new List<Student>();
             
             using (var reader = new StreamReader(filename))
@@ -196,6 +197,21 @@ namespace ENG101Sort
 
                 document.LastSection.Add(table);
 
+                table = new Table();
+                table.Borders.Width = 0;
+                table.AddColumn(Unit.FromInch(2));
+                table.AddColumn(Unit.FromInch(2));
+                row = table.AddRow();
+                cell = row.Cells[0];
+                paragraph = cell.AddParagraph();
+                paragraph.AddText("Time Zone:");
+                cell = row.Cells[1];
+                paragraph = cell.AddParagraph();
+                paragraph.AddText(student.TimeZone);
+
+                document.LastSection.Add(table);
+                
+
 
 
 
@@ -244,6 +260,7 @@ namespace ENG101Sort
         public string Choice3;
         public string Choice4;
         public string Choice5;
+        public string TimeZone;
 
         public void InputFromCSVValues(string[] values)
         {
@@ -264,6 +281,7 @@ namespace ENG101Sort
             Choice3 = values[17];
             Choice4 = values[18];
             Choice5 = values[19];
+            TimeZone = values[20];
         }
 
         public string Preference(int choice)
