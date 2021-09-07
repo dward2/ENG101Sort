@@ -23,15 +23,15 @@ namespace ENG101Sort
             if (filename=="") { return;  }
             Console.WriteLine("The entered name was {0}.", filename);
             */
-            string filename = @"D:\OneDrive\Documents\Ann\Work Spreadsheets\Fall 2020 Project Sort\007.csv";
+            string filename = @"D:\dwonl\Documents\Ann\2021 Fall Project Sort\Section 1 Working.csv";
             List<Student> students = new List<Student>();
             
             using (var reader = new StreamReader(filename))
             {
-                // If more than one header line, uncomment the code below, or even add more if more than two headers lines
-                //var Qline = reader.ReadLine();
-                //Console.WriteLine(Qline);
-                //var Qs = Qline.Split(',');
+                // If more than one header line, uncomment the three code lines below, or even add more if more than two headers lines
+                var Qline = reader.ReadLine();
+                Console.WriteLine(Qline);
+                var Qs = Qline.Split(',');
                 var headerline = reader.ReadLine();
                 Console.WriteLine(headerline);
                 var headers = headerline.Split(',');
@@ -197,7 +197,7 @@ namespace ENG101Sort
 
                 document.LastSection.Add(table);
 
-                table = new Table();
+                /*table = new Table();
                 table.Borders.Width = 0;
                 table.AddColumn(Unit.FromInch(2));
                 table.AddColumn(Unit.FromInch(2));
@@ -209,7 +209,7 @@ namespace ENG101Sort
                 paragraph = cell.AddParagraph();
                 paragraph.AddText(student.TimeZone);
 
-                document.LastSection.Add(table);
+                document.LastSection.Add(table);*/
                 
 
 
@@ -264,24 +264,31 @@ namespace ENG101Sort
 
         public void InputFromCSVValues(string[] values)
         {
-            FirstName = values[0];
-            LastName = values[1];
-            Email = values[3];
-            Gender = values[5];
-            Ethnicity = values[7];
-            USHS = values[8];
-            APCredits = values[9];
-            Electronics = values[10];
-            Crafting = values[11];
-            Programming = values[12];
-            CAD = values[13];
-            Prototyping = values[14];
-            Choice1 = values[15];
-            Choice2 = values[16];
-            Choice3 = values[17];
-            Choice4 = values[18];
-            Choice5 = values[19];
-            TimeZone = values[20];
+            FirstName = values[2];
+            LastName = values[3];
+            Email = values[4];
+            Gender = values[7];
+            Ethnicity = values[9];
+            USHS = values[10];
+            APCredits = values[11];
+            Electronics = values[12];
+            Crafting = values[13];
+            Programming = values[14];
+            CAD = values[15];
+            Prototyping = values[16];
+            if (values[17][0] == '"')
+            {
+                Choice1 = values[17].Remove(0, 1);
+            }
+            else
+            {
+                Choice1 = values[17];
+            }
+            
+            Choice2 = values[18];
+            Choice3 = values[19];
+            Choice4 = values[20];
+            Choice5 = values[21];
         }
 
         public string Preference(int choice)
