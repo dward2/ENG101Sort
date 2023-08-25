@@ -23,18 +23,21 @@ namespace ENG101Sort
             if (filename=="") { return;  }
             Console.WriteLine("The entered name was {0}.", filename);
             */
-            string filename = @"D:\dwonl\Documents\Ann\2022 Fall Project Sort\Section 06 Working.csv";
+            string filename = @"D:\dwonl\Documents\Ann\2023 Fall Project Sort\Section 06 Working.csv";
             List<Student> students = new List<Student>();
             
             using (var reader = new StreamReader(filename))
             {
                 // If more than one header line, uncomment the three code lines below, or even add more if more than two headers lines
-                var Qline = reader.ReadLine();
-                Console.WriteLine(Qline);
-                var Qs = Qline.Split(',');
-                var headerline = reader.ReadLine();
-                Console.WriteLine(headerline);
-                var headers = headerline.Split(',');
+                for (int i = 0; i < 24; i++)
+                {
+                    var Qline = reader.ReadLine();
+                    Console.WriteLine(Qline);
+                }
+                //var Qs = Qline.Split(',');
+                //var headerline = reader.ReadLine();
+                //Console.WriteLine(headerline);
+                //var headers = headerline.Split(',');
 
                 while (!reader.EndOfStream)
                 {
@@ -264,31 +267,31 @@ namespace ENG101Sort
 
         public void InputFromCSVValues(string[] values)
         {
-            FirstName = values[2];
-            LastName = values[3];
-            Email = values[4];
-            Gender = values[7];
-            Ethnicity = values[9];
-            USHS = values[10];
-            APCredits = values[11];
-            Electronics = values[12];
-            Crafting = values[13];
-            Programming = values[14];
-            CAD = values[15];
-            Prototyping = values[16];
-            if (values[17][0] == '"')
+            FirstName = values[17];
+            LastName = values[18];
+            Email = values[19];
+            Gender = values[22];
+            Ethnicity = values[24];
+            USHS = values[25];
+            APCredits = values[26];
+            Electronics = values[27];
+            Crafting = values[28];
+            Programming = values[29];
+            CAD = values[30];
+            Prototyping = values[31];
+            if (values[32][0] == '"')
             {
-                Choice1 = values[17].Remove(0, 1);
+                Choice1 = values[32].Remove(0, 1);
             }
             else
             {
-                Choice1 = values[17];
+                Choice1 = values[32];
             }
             
-            Choice2 = values[18];
-            Choice3 = values[19];
-            Choice4 = values[20];
-            Choice5 = values[21];
+            Choice2 = values[33];
+            Choice3 = values[34];
+            Choice4 = values[35];
+            Choice5 = values[36];
         }
 
         public string Preference(int choice)
