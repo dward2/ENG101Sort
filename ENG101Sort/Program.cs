@@ -23,7 +23,7 @@ namespace ENG101Sort
             if (filename=="") { return;  }
             Console.WriteLine("The entered name was {0}.", filename);
             */
-            string filename = @"D:\dwonl\Documents\Ann\2021 Fall Project Sort\Section 1 Working.csv";
+            string filename = @"D:\dwonl\Documents\Ann\2022 Fall Project Sort\Section 06 Working.csv";
             List<Student> students = new List<Student>();
             
             using (var reader = new StreamReader(filename))
