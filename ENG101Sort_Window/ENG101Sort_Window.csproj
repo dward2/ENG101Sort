@@ -81,6 +81,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="bin\Debug\ENG101Sort_Window.exe.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -94,6 +95,26 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\de\MigraDoc.DocumentObjectModel-gdi.resources.dll" />
+    <Content Include="bin\Debug\de\MigraDoc.Rendering-gdi.resources.dll" />
+    <Content Include="bin\Debug\de\MigraDoc.RtfRendering-gdi.resources.dll" />
+    <Content Include="bin\Debug\de\PdfSharp-gdi.resources.dll" />
+    <Content Include="bin\Debug\de\PdfSharp.Charting-gdi.resources.dll" />
+    <Content Include="bin\Debug\ENG101Sort_Window.exe" />
+    <Content Include="bin\Debug\ENG101Sort_Window.pdb" />
+    <Content Include="bin\Debug\MigraDoc.DocumentObjectModel-gdi.dll" />
+    <Content Include="bin\Debug\MigraDoc.DocumentObjectModel-gdi.xml" />
+    <Content Include="bin\Debug\MigraDoc.Rendering-gdi.dll" />
+    <Content Include="bin\Debug\MigraDoc.Rendering-gdi.xml" />
+    <Content Include="bin\Debug\MigraDoc.RtfRendering-gdi.dll" />
+    <Content Include="bin\Debug\MigraDoc.RtfRendering-gdi.xml" />
+    <Content Include="bin\Debug\PdfSharp-gdi.dll" />
+    <Content Include="bin\Debug\PdfSharp-gdi.xml" />
+    <Content Include="bin\Debug\PdfSharp.Charting-gdi.dll" />
+    <Content Include="bin\Debug\PdfSharp.Charting-gdi.xml" />
+    <Content Include="bin\Debug\settings.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

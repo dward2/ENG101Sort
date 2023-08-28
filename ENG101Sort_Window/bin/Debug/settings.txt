@@ -1,0 +1,16 @@
+﻿Number of Lines To Skip = 24
+FirstName = 18
+LastName = 19
+Email = 20
+Gender = 23
+Ethnicity = 25
+USHS = 26
+APCredits = 27
+Electronics = 28
+Crafting = 29
+Programming = 30
+CAD = 31
+Prototyping = 32
+Choices = 33
+
+

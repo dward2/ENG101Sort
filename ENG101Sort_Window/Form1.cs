@@ -29,7 +29,8 @@ namespace ENG101Sort_Window
             {
                 string filePath = ofd.FileName;
                 Console.WriteLine(filePath);
-                GenerateFile(filePath);
+                List<int> settings = GetSettings();
+                GenerateFile(filePath, settings);
             }
             else
             {
@@ -39,7 +40,25 @@ namespace ENG101Sort_Window
 
         }
 
-        static void GenerateFile(string filename)
+        static List<int> GetSettings()
+        {
+            StreamReader sr = new StreamReader("settings.txt");
+            List<int> settings = new List<int>();
+            string line = sr.ReadLine();
+            while (line != null)
+            {
+                if (line.Contains("="))
+                {
+                    string[] data = line.Split('=');
+                    settings.Add(int.Parse(data[1])-1);
+                }
+                line = sr.ReadLine();
+            }
+            sr.Close();
+            return settings;
+        }
+
+        static void GenerateFile(string filename, List<int> settings)
         {
 
             List<Student> students = new List<Student>();
@@ -47,7 +66,7 @@ namespace ENG101Sort_Window
             using (var reader = new StreamReader(filename))
             {
                 // If more than one header line, uncomment the three code lines below, or even add more if more than two headers lines
-                for (int i = 0; i < 24; i++)
+                for (int i = 0; i < settings[0]+1; i++)
                 {
                     var Qline = reader.ReadLine();
                     Console.WriteLine(Qline);
@@ -63,7 +82,7 @@ namespace ENG101Sort_Window
                     Console.WriteLine(line);
                     var values = line.Split(',');
                     Student student = new Student();
-                    student.InputFromCSVValues(values);
+                    student.InputFromCSVValues(values, settings);
                     students.Add(student);
                 }
             }
@@ -283,33 +302,33 @@ namespace ENG101Sort_Window
             public string Choice5;
             public string TimeZone;
 
-            public void InputFromCSVValues(string[] values)
+            public void InputFromCSVValues(string[] values, List<int> settings)
             {
-                FirstName = values[17];
-                LastName = values[18];
-                Email = values[19];
-                Gender = values[22];
-                Ethnicity = values[24];
-                USHS = values[25];
-                APCredits = values[26];
-                Electronics = values[27];
-                Crafting = values[28];
-                Programming = values[29];
-                CAD = values[30];
-                Prototyping = values[31];
-                if (values[32][0] == '"')
+                FirstName = values[settings[1]];
+                LastName = values[settings[2]];
+                Email = values[settings[3]];
+                Gender = values[settings[4]];
+                Ethnicity = values[settings[5]];
+                USHS = values[settings[6]];
+                APCredits = values[settings[7]];
+                Electronics = values[settings[8]];
+                Crafting = values[settings[9]];
+                Programming = values[settings[10]];
+                CAD = values[settings[11]];
+                Prototyping = values[settings[12]];
+                if (values[settings[13]][0] == '"')
                 {
-                    Choice1 = values[32].Remove(0, 1);
+                    Choice1 = values[settings[13]].Remove(0, 1);
                 }
                 else
                 {
-                    Choice1 = values[32];
+                    Choice1 = values[settings[13]];
                 }
 
-                Choice2 = values[33];
-                Choice3 = values[34];
-                Choice4 = values[35];
-                Choice5 = values[36];
+                Choice2 = values[settings[13]+1];
+                Choice3 = values[settings[13]+2];
+                Choice4 = values[settings[13]+3];
+                Choice5 = values[settings[13]+4];
             }
 
             public string Preference(int choice)
